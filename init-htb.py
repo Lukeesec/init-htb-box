@@ -49,7 +49,7 @@ def scan_box(ip_addr, name, nmap, auto_recon):
 		os.system('python3 /opt/AutoRecon/autorecon.py --only-scans-dir --single-target -o {0}.htb {1}'.format(name, ip_addr))
 	elif nmap == True:
 		os.makedirs(f'{name}.htb/scans', exist_ok=True)
-		os.system(f'nmap -sC -sV -T4 -p- {ip_addr} -oN {name}.htb/scans/full-tcp-scan.nmap')
+		os.system(f'nmap -Pn -sC -sV -T4 -p- {ip_addr} -oN {name}.htb/scans/full-tcp-scan.nmap')
 
 def install_hostname(ip_addr, name):
 	with open('/etc/hosts', 'r') as fs:
